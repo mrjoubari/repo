@@ -8,16 +8,24 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>..\Template.parent</relativePath>
   </parent>
-  <artifactId>Template</artifactId>
-  <packaging>bwear</packaging>
+  <artifactId>Template.module</artifactId>
+  <packaging>bwmodule</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>com.tibco.plugins</groupId>
+      <artifactId>com.tibco.bw.palette.shared</artifactId>
+      <version>6.1.100</version>
+    </dependency>
+  </dependencies>
   <build>
+    <sourceDirectory>src</sourceDirectory>
+    <outputDirectory>target/classes</outputDirectory>
     <plugins>
       <plugin>
         <groupId>com.tibco.plugins</groupId>
         <artifactId>bw6-maven-plugin</artifactId>
         <version>1.2.2</version>
         <extensions>true</extensions>
-        <configuration />
       </plugin>
     </plugins>
   </build>
