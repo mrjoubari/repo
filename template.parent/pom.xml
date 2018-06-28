@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tibco.bw</groupId>
-  <artifactId>Template.parent</artifactId>
+  <artifactId>template.parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>..\Template.module</module>
-    <module>..\Template</module>
+    <module>..\template.module</module>
+    <module>..\template</module>
   </modules>
 </project>
