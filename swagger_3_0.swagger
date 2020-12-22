@@ -1,0 +1,69 @@
+{
+  "swagger": "3.0.0",
+  "info": {
+    "title": "Simple API overview",
+    "version": "2.0.0"
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "description": "subscribes a client to receive out-of-band data",
+        "parameters": [
+          {
+            "name": "callbackUrl",
+            "in": "query",
+            "required": true,
+            "description": "the location where data will be sent.  Must be network accessible\nby the source server\n",
+            "schema": {
+              "type": "object",
+            	"properties": {
+            		"code": {
+            			"description": "Code du statut du segment Planning (25, 45, etc) ",
+            			"type": "string",
+            			"minLength": 1,
+            			"maxLength": 2
+            		},
+            		"libelle": {
+            			"description": "Libellé du statut du segment Planning (demande de congés, etc)",
+            			"type": "string",
+            			"minLength": 1,
+            			"maxLength": 50
+            		}
+            		
+            		},
+            	"anyOf": [{
+            			"required": ["code"]
+            		}, {
+            			"required": ["libelle"]
+            		}
+            	
+            	]
+            }
+          }
+        ], "responses": {
+          "201": {
+            "description": "subscription successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "subscription information",
+                  "required": [
+                    "subscriptionId"
+                  ],
+                  "properties": {
+                    "subscriptionId": {
+                      "description": "this unique identifier allows management of the subscription",
+                      "type": "string",
+                      "example": "2531329f-fb09-4ef7-887e-84e648214436"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      
+      }
+    }
+  }
+}
